@@ -58,6 +58,22 @@ checker.addEventListener('change', () => {
     list.style.display = 'block';
     label.textContent = 'Hide all books';
   }
-  console.log('hey');
 });
-console.log(checker);
+
+// SEARCH BAR
+const searchBar = document.forms['search-books'];
+console.log(searchBar);
+searchBar.addEventListener('keyup', e => {
+  const searchTerm = e.target.value.toLowerCase();
+  console.log(searchTerm);
+  const books = list.querySelectorAll('li');
+  books.forEach(book => {
+    const title = book.firstElementChild.textContent;
+    if (title.toLowerCase().indexOf(searchTerm) == -1) {
+      book.style.display = 'none';
+    } else {
+      book.style.display = 'block';
+    }
+  });
+  // console.log(books);
+});
