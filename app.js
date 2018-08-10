@@ -77,3 +77,27 @@ searchBar.addEventListener('keyup', e => {
   });
   // console.log(books);
 });
+
+const data = [
+  'car',
+  'truck',
+  'car',
+  'truck',
+  'truck',
+  'truck',
+  'truck',
+  'truck',
+  'truck',
+  'truck',
+  'passat',
+];
+
+const transporter = data.reduce((obj, item) => {
+  if (!obj[item]) {
+    obj[item] = 0;
+  }
+  obj[item]++;
+  return obj;
+}, {});
+
+console.log(transporter);
