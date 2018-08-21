@@ -67,7 +67,7 @@ searchInput.addEventListener('keyup', e => {
   const needle = e.target.value.toLowerCase();
   searchBooks.forEach(book => {
     const bookTitle = book.querySelector('.name').textContent.toLowerCase();
-    if (bookTitle.indexOf(needle) !== -1) {
+    if (bookTitle.includes(needle)) {
       book.style.display = 'block';
     } else {
       book.style.display = 'none';
