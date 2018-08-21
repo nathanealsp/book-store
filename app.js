@@ -50,7 +50,6 @@ tabs.addEventListener('click', e => {
   if (e.target.tagName === 'LI') {
     panels.forEach(panel => {
       if (panel === targetPanel) {
-        console.log(panel);
         panel.classList.add('active');
       } else {
         panel.classList.remove('active');
@@ -60,3 +59,18 @@ tabs.addEventListener('click', e => {
 });
 
 // SEARCH INPUT
+const searchForm = document.forms['search-books'];
+const searchInput = searchForm.querySelector('input');
+const searchBooks = document.querySelectorAll('#book-list li');
+
+searchInput.addEventListener('keyup', e => {
+  const needle = e.target.value.toLowerCase();
+  searchBooks.forEach(book => {
+    const bookTitle = book.querySelector('.name').textContent.toLowerCase();
+    if (bookTitle.indexOf(needle) !== -1) {
+      book.style.display = 'block';
+    } else {
+      book.style.display = 'none';
+    }
+  });
+});
