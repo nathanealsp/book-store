@@ -1,13 +1,8 @@
 const books = document.querySelector('#book-list ul');
 const addBook = document.forms['add-book'];
 
-console.log(books.parentElement.parentElement);
-console.log(books.children);
-console.log(books.nextElementSibling);
-console.log(books.previousElementSibling);
 // ADD BOOK
 const input = addBook.querySelector('input[type="text"]');
-console.log(input);
 addBook.addEventListener('submit', e => {
   e.preventDefault();
   const inputValue = input.value;
@@ -22,10 +17,10 @@ addBook.addEventListener('submit', e => {
   li.appendChild(liButton);
   liName.textContent = inputValue;
   liButton.textContent = 'delete';
-  console.log(inputValue);
-  console.log(li);
+  // APPENDING CHILD
   books.appendChild(li);
 });
+
 // DELETE BOOK
 books.addEventListener('click', e => {
   if (e.target.className === 'delete') {
@@ -46,4 +41,22 @@ radioButton.addEventListener('change', () => {
     label.textContent = 'Hide all books';
   }
 });
-console.log(radioButton);
+
+// TABBED CONTENT
+const panels = document.querySelectorAll('.panel');
+const tabs = document.querySelector('.tabs');
+tabs.addEventListener('click', e => {
+  const targetPanel = document.querySelector(e.target.dataset.target);
+  if (e.target.tagName === 'LI') {
+    panels.forEach(panel => {
+      if (panel === targetPanel) {
+        console.log(panel);
+        panel.classList.add('active');
+      } else {
+        panel.classList.remove('active');
+      }
+    });
+  }
+});
+
+// SEARCH INPUT
