@@ -1,17 +1,23 @@
-const books = document.querySelector('#book-list');
+const books = document.querySelector('#book-list ul');
+const hideCheck = document.forms['add-book'];
 console.log(books.parentElement.parentElement);
 console.log(books.children);
 console.log(books.nextElementSibling);
 console.log(books.previousElementSibling);
+// ADD BOOK
+// DELETE BOOK
+books.addEventListener('click', e => {
+  if (e.target.className === 'delete') {
+    books.removeChild(e.target.parentElement);
+  }
+});
 
-const hideCheck = document.forms['add-book'];
-
-const hideChack = hideCheck.querySelector('input[type="checkbox"]');
+// UPDATE BOOK
+// HIDE OR SHOW BUTTON
+const radioButton = hideCheck.querySelector('input[type="checkbox"]');
 const label = hideCheck.querySelector('label');
-console.log(label);
-hideChack.addEventListener('change', e => {
-  console.log(e.target.value);
-  if (hideChack.checked) {
+radioButton.addEventListener('change', () => {
+  if (radioButton.checked) {
     books.style.display = 'none';
     label.textContent = 'Show all books';
   } else {
@@ -19,4 +25,4 @@ hideChack.addEventListener('change', e => {
     label.textContent = 'Hide all books';
   }
 });
-console.log(hideChack);
+console.log(radioButton);
