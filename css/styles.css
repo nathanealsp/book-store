@@ -4,6 +4,10 @@ body {
   letter-spacing: 1px;
 }
 
+:root{
+  --grey:blue;
+}
+
 h1,
 h2 {
   font-weight: normal;
@@ -22,7 +26,7 @@ h2 {
 }
 
 #page-banner {
-  background: #eee;
+  background: var(--grey);
   padding: 10px 0;
 }
 
@@ -42,7 +46,7 @@ h2 {
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
-  color: #444;
+  color: var(--grey);
 }
 
 #book-list,
@@ -146,4 +150,38 @@ h2 {
 
 #tabbed-content .panel.active {
   display: block;
+}
+
+/* SWATCHES */
+
+.swatches:nth-child(1){
+  font-size: 10px;
+  display: grid;
+}
+
+.swatches {
+  width: 70%;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+  margin-bottom: 10px;
+  /* background: #444; */
+}
+.swatches span {
+  width:auto;
+  height: 20px;
+}
+
+.kolor1{
+  background: #222;
+}
+.kolor2{
+  background: #f76262;
+}
+.kolor3{
+  background: #3e84da;
+}
+.kolor4{
+  background: #ebb332;
 }

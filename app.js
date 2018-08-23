@@ -74,3 +74,17 @@ searchInput.addEventListener('keyup', e => {
     }
   });
 });
+
+const root = document.querySelector(':root');
+
+// SWATCHES
+const swatches = document.querySelectorAll('.swatches span');
+console.log(swatches);
+swatches.forEach(swatch =>
+  swatch.addEventListener('click', e => {
+    if (swatch.className !== 'textSwatch') {
+      root.style.setProperty('--grey', e.target.style.background);
+      console.log(e.target.style.background);
+    }
+  })
+);
